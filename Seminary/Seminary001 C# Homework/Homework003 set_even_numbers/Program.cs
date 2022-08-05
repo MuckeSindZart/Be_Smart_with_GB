@@ -18,7 +18,7 @@ int num1 = Promt("Введите число : ");
 
 for (int i = 2; i <= num1; i=i+2)
 
-    if (i % 2 == 0)
+   // if (i % 2 == 0) //Лишнее условие
     {
         System.Console.Write(i+" ");
     }

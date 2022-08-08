@@ -15,11 +15,22 @@ int Promt(string message)
 }
 
 int num1 = Promt("Введите число : ");
+if (num1>=0){
+for (int i = 2; i <= num1; i+=2)
 
-for (int i = 2; i <= num1; i=i+2)
-
-   // if (i % 2 == 0) //Лишнее условие
     {
-        System.Console.Write(i+" ");
+        System.Console.Write(i + " ");
     }
+}
+else{
+for (int i = 0; i >= num1; i-=2)
+
+    {
+        System.Console.Write(i + " " );
+    }
+}
+Console.ForegroundColor = ConsoleColor.Red;
+if (num1<0){System.Console.Write($"Но число {num1} то, не натуральное!!" );}
+
 System.Console.WriteLine();    
+

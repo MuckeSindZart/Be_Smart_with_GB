@@ -22,6 +22,7 @@ int num3 = Promt("Введите число 3 : ");
 
 
 int max = num1;
+/*
 int mid = num2;
 int min = num3;
 if (max < num2) { mid = max; max = num2; }
@@ -30,3 +31,14 @@ if (mid < min)  {swap = mid; mid = min; min = swap;}
 
 System.Console.WriteLine($"min={min} mid={mid} max={max}");
 System.Console.WriteLine($"{num1} {num2} {num3} -> {max} ");
+*/
+
+// if ((num1 > num2) && (num1 > num3)) {max = num1;} //Лишнее  условие
+// Если число 1 больше числа 2 и в тоже время число 1 больше числа 2
+if ((num2 > num1) && (num2 > num3)) {max = num2;}
+if ((num3 > num1) && (num3 > num2)) {max = num3;}
+//if ((num1 == num2) && (num1 == num3)) {max = num1;} // Лишнее  условие
+System.Console.Write($"{num1} {num2} {num3} -> ");
+Console.ForegroundColor = ConsoleColor.Yellow;
+System.Console.Write(max);
+System.Console.WriteLine();

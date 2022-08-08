@@ -19,20 +19,55 @@ int Prompt(string message)
     return result;
 }
 
+void FillArray(int[] collection)
+{
+    int leng = collection.Length;
+    int i = 0;
+    while (i < leng)
+    {
+        collection[i] = new Random().Next(1, 100);
+        i++;
+    }
+}
+
 int input = Prompt("Введите число : ");
-int randNum = new Random().Next(20);
+
+// из 20 случайных чисел массива
+int[] randNumArray = new int[20];
+FillArray(randNumArray);
+
+
+for (int i = 0; i<randNumArray.Length; i++)
+{
+    if (randNumArray[i] % input != 0 )
+    {
+        System.Console.WriteLine(randNumArray[i] + "-> нет");
+    }
+
+    else 
+    {
+        { System.Console.WriteLine(randNumArray[i] + "-> да"); }
+        
+        break;
+    }
+}
+/* 
+//пока не выпадет кратное случайное число
 int i = 0;
+int randNum = new Random().Next(1,20);
 while (i == 0)
 {
-    if (randNum % input != 0)
+    if (randNum % input != 0 )
     {
         System.Console.WriteLine(randNum + "-> нет");
-        randNum = new Random().Next(20);
+        randNum = new Random().Next(1,20);
     }
-    else
+
+    else 
     {
         { System.Console.WriteLine(randNum + "-> да"); }
         i = 1;
     }
 }
+*/
 System.Console.WriteLine();

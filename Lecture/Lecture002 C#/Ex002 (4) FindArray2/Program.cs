@@ -62,5 +62,6 @@ if (pos != -1)
 }
 else
 {
+    Console.ForegroundColor = ConsoleColor.Red;
     System.Console.WriteLine("Искомого числа " + find + " в массиве нет ");
 }

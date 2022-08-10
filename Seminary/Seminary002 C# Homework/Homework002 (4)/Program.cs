@@ -20,7 +20,7 @@ Console.ForegroundColor = ConsoleColor.White;
 
 int day = Prompt("Введите день недели :");
 
-if (day > 7)
+if (day > 7 || day <= 0)  // fix ( || day <= 0)
 {
     Console.ForegroundColor = ConsoleColor.Red;
     System.Console.WriteLine("Такого дня недели не бывает");

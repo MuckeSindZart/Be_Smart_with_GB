@@ -141,3 +141,14 @@ result = (int)doubleNum % 10;
 
 Console.ForegroundColor = ConsoleColor.Green;
 System.Console.WriteLine($"{num}->{result}");
+
+// Fix 
+result = num;
+while (result > 1000)
+{
+    result = result / 10;
+}
+result = result % 10;
+
+Console.ForegroundColor = ConsoleColor.Blue;
+System.Console.WriteLine($"{num}->{result}");

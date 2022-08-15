@@ -21,7 +21,7 @@ int Prompt(string message)
     return result;
 }
 
-
+/*
 int PoliNum(int number)
 {
     int halfNumber1 = number / 1000;
@@ -30,6 +30,16 @@ int PoliNum(int number)
     int result = -1;
     if (halfNumber1 == halfNumber2) { result = 1; }
     return result;
+}
+*/
+
+
+bool PoliNum(int number)        // Fix
+{
+    int halfNumber1 = number / 1000;
+    int halfNumber2 = (number % 10) * 10 + (number / 10) % 10;
+
+    return (halfNumber1 == halfNumber2);
 }
 
 
@@ -44,7 +54,8 @@ if (num < 10000 || num > 99999)
 }
 
 
-if (PoliNum(num) > 0)
+
+if (PoliNum(num) == true)
 {
     System.Console.WriteLine($"{num}->да");
 }

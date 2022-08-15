@@ -15,22 +15,21 @@ int Prompt(string message)
     return result;
 }
 
-void SetN(int num)
+void SetN(int num) //выдаёт таблицу квадратов чисел
 {
- int i=1;   
-    while(i<=num)
+    int i = 1;
+    while (i <= num)
 
     {
-        
-        System.Console.Write(i*i+" ");
+        System.Console.Write(i * i + " ");
         i++;
-        
+
     }
 
 
 }
 
-int[] arrayFill(int size)
+int[] arrayFill(int size)  //P.S.
 {
     int i = 0;
     int[] array = new int[size];
@@ -43,7 +42,7 @@ int[] arrayFill(int size)
 }
 
 
-void printArray(int[] array)
+void printArray(int[] array)  //P.S.
 {
     for (int i = 0; i < array.Length; i++)
     {
@@ -52,7 +51,7 @@ void printArray(int[] array)
 
 }
 
-int Max(int[] array)
+int Max(int[] array) //P.P.S.
 {
     int maxNum = array[0];
     for (int i = 1; i < array.Length; i++)
@@ -64,7 +63,7 @@ int Max(int[] array)
 
 
 
-double Mid(int[] array)
+double Mid(int[] array)  //P.P.S.
 {
     double sumArray = 0;
     double result = 0;

@@ -142,7 +142,7 @@ result = (int)doubleNum % 10;
 Console.ForegroundColor = ConsoleColor.Green;
 System.Console.WriteLine($"{num}->{result}");
 
-// Fix 
+// Fixed 
 result = num;
 while (result > 1000)
 {

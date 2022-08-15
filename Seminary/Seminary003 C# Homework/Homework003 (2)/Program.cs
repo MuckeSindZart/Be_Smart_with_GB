@@ -23,7 +23,7 @@ int Prompt(string message)
 double Distance(int aX, int aY, int aZ, int bX, int bY, int bZ)
 {
     double result = Math.Sqrt((aX - bX) * (aX - bX) + (aY - bY) * (aY - bY) + (aZ - bZ) * (aZ - bZ));
-    return result;
+    return Math.Round(result, 2);
 }
 
 
@@ -37,5 +37,4 @@ int bY = Prompt("Введите b Y : ");
 int bZ = Prompt("Введите b Z : ");
 
 double result = Distance(aX, aY, aZ, bX, bY, bZ);
-System.Console.WriteLine($"A ({aX},{aY},{aZ}); B ({bX},{bY},{bZ}),->{Math.Round(result, 2)}");
-System.Console.WriteLine("Растояние между этими двумя точками =" + result);
+System.Console.WriteLine($"A ({aX},{aY},{aZ}); B ({bX},{bY},{bZ}),->{result}");

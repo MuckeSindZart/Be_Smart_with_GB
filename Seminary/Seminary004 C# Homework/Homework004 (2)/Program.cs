@@ -1,16 +1,12 @@
 ﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World! Программа, которая принимает на вход число и выдаёт сумму цифр в числе.");
+Console.WriteLine("Hello, World! Программа, которая принимает на вход число и выдаёт сумму цифр в числе."
+                + "\r\n452 -> 11;\r\n82 -> 10;\r\n9012 -> 12;");
 
 /*
 Задача 2: Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе.
-
 452 -> 11
-
 82 -> 10
-
 9012 -> 12
-
-
 */
 
 int Prompt(string message)
@@ -24,30 +20,24 @@ int Prompt(string message)
 }
 
 
-int SumOfNumber(int a)
+int SumOfNumber(int num)
 {
+    int result = 0;
 
-    int size = 0;
-    int i = 10;
-    int result = (a % i);
-
-    while (a != 0)
+    while (num != 0)
     {
-        i = i * 10;
-        result= result + (a % i)/(i/10);
-        a = a - a % i;
-        size++;
-
-
+        result = result + num % 10;
+        num = num / 10;
     }
-    // return size;
+
     return result;
 }
-//-------------------------//
+
+//---------------------------------------//
 
 
 int inputNum = Prompt("Введите число : ");
 
-System.Console.WriteLine($"size {SumOfNumber(inputNum)}");
-
+System.Console.WriteLine($"{inputNum} -> {SumOfNumber(inputNum)}");
+System.Console.WriteLine();
 

@@ -6,7 +6,7 @@ Console.WriteLine("Hello, World! Программа, которая приним
 4 -> 10
 8 -> 36
 */
-
+/*
 int Prompt(string message)
 {
     Console.ForegroundColor = ConsoleColor.White;
@@ -40,4 +40,14 @@ return fact;
 int num = Prompt("Введите число : ");
 System.Console.WriteLine(SetN(num));
 
+*/
 
+for (int i = 1; i <= 4; i++)
+{
+    
+    for (int j = i - 1; j >= 0; j--)
+    {
+        System.Console.Write(i + " ");
+    }
+
+}

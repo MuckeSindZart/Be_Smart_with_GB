@@ -1,12 +1,13 @@
 ﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World! Программа, которая принимает на вход число (А) и выдаёт сумму чисел от 1 до А.");
+Console.WriteLine("Hello, World! Программа, которая принимает на вход число (А) и выдаёт сумму чисел от 1 до А."
++ "\r\n\tПример:\t 7 -> 28 \r\n\t\t 4 -> 10 \r\n\t\t 8 -> 36");
 /*
 Задача 1: Напишите программу, которая принимает на вход число (А) и выдаёт сумму чисел от 1 до А.
 7 -> 28
 4 -> 10
 8 -> 36
 */
-/*
+
 int Prompt(string message)
 {
     Console.ForegroundColor = ConsoleColor.White;
@@ -18,36 +19,28 @@ int Prompt(string message)
 }
 
 
-int SetN(int num)
+int GetSum(int num)
 {
-    if (num == 0 || num < 0)    // проверка
-    {
-        Console.ForegroundColor = ConsoleColor.Red;
-
-        System.Console.Write($"Ошибка, число {num}<||=0");
-    }
-    
-    int fact = 1;
-
+    int sum = 0;
     for (int i = 1; i <= num; i++)
     {
-        fact = fact * i;
-
+        sum += i;
     }
-return fact;
+    return sum;
 }
+
+int GetSumFast(int a)
+{
+    return a * (a + 1) / 2;
+}
+
+//-------------------------------------//
 
 int num = Prompt("Введите число : ");
-System.Console.WriteLine(SetN(num));
+System.Console.WriteLine($"{num} -> {GetSum(num)}");
 
-*/
+Console.WriteLine($"{num} -> {GetSumFast(num)}");
 
-for (int i = 1; i <= 4; i++)
-{
-    
-    for (int j = i - 1; j >= 0; j--)
-    {
-        System.Console.Write(i + " ");
-    }
 
-}
+
+

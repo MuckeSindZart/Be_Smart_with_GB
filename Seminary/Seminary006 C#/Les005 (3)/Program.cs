@@ -24,7 +24,7 @@ int Prompt(string message)
 
 void MakeBinary(int num)
 {
-    
+
     string binary = string.Empty;
     int n = num;
     while (n > 0)
@@ -35,6 +35,8 @@ void MakeBinary(int num)
 
     Console.WriteLine($"{num} -> {binary}");
 }
+
+
 
 
 int number = Prompt("Введите число : ");

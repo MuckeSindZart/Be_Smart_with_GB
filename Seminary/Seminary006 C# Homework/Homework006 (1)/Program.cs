@@ -17,6 +17,7 @@ int Prompt(string message)
     return result;
 }
 
+
 void PrintArray(int[] array)
 {
     System.Console.Write("[");
@@ -29,6 +30,7 @@ void PrintArray(int[] array)
 
 }
 
+
 int[] CreateArray(int num)
 {
     int[] array = new int[num];
@@ -38,6 +40,7 @@ int[] CreateArray(int num)
     }
     return array;
 }
+
 
 int AboveZeroCount(int number, int countAboveZero)
 {
@@ -49,7 +52,7 @@ int AboveZeroCount(int number, int countAboveZero)
 }
 
 
-int AboveZeroInArray(int[] array)
+int CalculateAboveZeroInArray(int[] array)
 {
     int answer = 0;
     for (int i = 0; i < array.Length; i++)
@@ -59,8 +62,10 @@ int AboveZeroInArray(int[] array)
     return answer;
 }
 
+
 //--------------------------------------------------//
+
 
 int[] newArray = CreateArray(Prompt("Введите размер массива : "));
 PrintArray(newArray);
-System.Console.WriteLine($"-> {AboveZeroInArray(newArray)}");
+System.Console.WriteLine($"-> {CalculateAboveZeroInArray(newArray)}");

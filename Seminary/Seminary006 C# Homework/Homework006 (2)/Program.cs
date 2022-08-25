@@ -14,6 +14,26 @@ double Prompt(string message)
     return result;
 }
 
+void SuppressionPointTwoLines(double b1, double k1, double b2, double k2)
+{
+    if (k1 == k2)
+    {
+        if (k1 == k2 && b1 == b2)
+        {
+            Console.WriteLine($"Прямые совпадают");
+        }
+        else
+        {
+            Console.WriteLine($"Прямые параллельны");
+        }
+    }
+    else
+    {
+        double x = (-b2 + b1) / (-k1 + k2);
+        double y = k2 * x + b2;
+        Console.WriteLine($"Точка пересечения: ({x}; {y})");
+    }
+}
 
 //---------------------------------------------------------------------------//
 
@@ -25,16 +45,6 @@ double b2 = Prompt("Введите b2: ");
 
 double k2 = Prompt("Введите k2: ");
 
-if (k1 == k2)
-{
-    if (b1 == b2)
-        Console.WriteLine($"Прямые совпадают");
-    else
-        Console.WriteLine($"Прямые параллельны");
-}
-else
-{
-    double x = (-b2 + b1) / (-k1 + k2);
-    double y = k2 * x + b2;
-    Console.WriteLine($"Точка пересечения: ({x}; {y})");
-}
+SuppressionPointTwoLines(b1, k1, b2, k2);
+
+

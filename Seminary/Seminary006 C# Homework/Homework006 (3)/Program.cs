@@ -18,6 +18,15 @@ void Print2DArray(int[,] array)
 {
     for (int i = 0; i < array.GetLength(0); i++)
     {
+        if (i % 2 == 0)
+        {
+            Console.ForegroundColor = ConsoleColor.Gray;
+        }
+        else
+        {
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+        }
+
         System.Console.Write("| ");
         for (int j = 0; j < array.GetLength(1) - 1; j++)
         {
@@ -25,8 +34,11 @@ void Print2DArray(int[,] array)
         }
         System.Console.WriteLine($"{array[i, array.GetLength(1) - 1]} |");
     }
-}
 
+    Console.ForegroundColor = ConsoleColor.White;
+    System.Console.WriteLine();
+
+}
 
 
 int[,] Fill2DArray(int[,] array)
@@ -44,9 +56,10 @@ int[,] Fill2DArray(int[,] array)
     return array;
 }
 
+
 int[,] Create2DArray()
 {
-    int[,] array = new int[Prompt("Введите количество колонок: "), Prompt("Введите количество строк: ")];
+    int[,] array = new int[Prompt("Введите количество строк: "), Prompt("Введите количество колонок: ")];
     return array;
 }
 

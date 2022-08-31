@@ -1,9 +1,13 @@
 ﻿// See https://aka.ms/new-console-template for more information
 Console.WriteLine("Hello, World!");
 /*
-Задача 4. Со звездочкой(*). Найдите максимальное значение в матрице по каждой строке, ссумируйте их. 
-Затем найдети минимальное значение по каждой колонке, тоже ссумируйте их. 
-Затем из первой суммы (с максимумами) вычтите вторую сумму(с минимумами) 
+Задача 3. Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
+
+Например, задан массив:
+1 4 7 2
+5 9 2 3
+8 4 2 4
+Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.
 */
 
 
@@ -13,6 +17,15 @@ int Prompt(string message)
     string input = System.Console.ReadLine();
     int result = int.Parse(input);
     return result;
+}
+
+
+void PrintArray(double[] array)
+{
+    for (int i = 0; i < array.Length; i++)
+    {
+        System.Console.Write($"{Math.Round(array[i], 1)};\t");
+    }
 }
 
 
@@ -29,12 +42,12 @@ void Print2DArray(int[,] array)
             Console.ForegroundColor = ConsoleColor.DarkGray;
         }
 
-        System.Console.Write("| ");
+        System.Console.Write("|");
         for (int j = 0; j < array.GetLength(1) - 1; j++)
         {
-            System.Console.Write($"{array[i, j]},");
+            System.Console.Write($"{array[i, j]}\t");
         }
-        System.Console.WriteLine($"{array[i, array.GetLength(1) - 1]} |");
+        System.Console.WriteLine($"{array[i, array.GetLength(1) - 1]}|");
     }
 
     Console.ForegroundColor = ConsoleColor.White;
@@ -65,29 +78,24 @@ int[,] Create2DArray()
     return array;
 }
 
-int CalcDifferenceSumMaxSumMin(int[,] array)
+
+double[] CalcAverageColIn2DArray(int[,] array)
+
 {
 
-    int sumMinNum = 0;
-    int sumMaxNum = 0;
-    for (int i = 0; i < array.GetLength(0); i++)
+    double[] averageArray = new double[array.GetLength(1)];
+    double sumNum = 0;
+    for (int i = 0; i < array.GetLength(1); i++)
     {
-        int minNum = array[i, 0];
-        int maxNum = array[i, 0];
-        for (int j = 0; j < array.GetLength(1); j++)
+        sumNum = 0;
+        for (int j = 0; j < array.GetLength(0); j++)
         {
-            if (array[i, j] < minNum) { minNum = array[i, j]; }
-            if (array[i, j] > maxNum) { maxNum = array[i, j]; }
+            sumNum += array[j, i];
         }
-
-        sumMinNum += minNum;
-        sumMaxNum += maxNum;
+        averageArray[i] = sumNum / array.GetLength(0);
     }
-    int answer = sumMaxNum - sumMinNum;
-
-    return answer;
+    return averageArray;
 }
-
 
 
 
@@ -99,4 +107,7 @@ int[,] takeArray = Create2DArray();
 Print2DArray(takeArray);
 Fill2DArray(takeArray);
 Print2DArray(takeArray);
-System.Console.WriteLine(CalcDifferenceSumMaxSumMin(takeArray));
+
+
+System.Console.WriteLine("среднее арифметическое элементов в каждом столбце ");
+PrintArray(CalcAverageColIn2DArray(takeArray));

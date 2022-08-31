@@ -1,10 +1,11 @@
 ﻿// See https://aka.ms/new-console-template for more information
 Console.WriteLine("Hello, World!");
 /*
-Задача 4. Со звездочкой(*). Найдите максимальное значение в матрице по каждой строке, ссумируйте их. 
-Затем найдети минимальное значение по каждой колонке, тоже ссумируйте их. 
-Затем из первой суммы (с максимумами) вычтите вторую сумму(с минимумами) 
+Задача 4. Со звездочкой(*). Найдите максимальное значение в матрице по каждой строке, ссумируйте их.
+Затем найдите минимальное значение по каждой колонке, тоже ссумируйте их. 
+Затем из первой суммы (с максимумами) вычтите вторую сумму(с минимумами)
 */
+
 
 
 int Prompt(string message)
@@ -65,29 +66,46 @@ int[,] Create2DArray()
     return array;
 }
 
-int CalcDifferenceSumMaxSumMin(int[,] array)
-{
 
-    int sumMinNum = 0;
+int CalcSumMaxNumInRow(int[,] array)
+{
     int sumMaxNum = 0;
+
     for (int i = 0; i < array.GetLength(0); i++)
     {
-        int minNum = array[i, 0];
         int maxNum = array[i, 0];
         for (int j = 0; j < array.GetLength(1); j++)
         {
-            if (array[i, j] < minNum) { minNum = array[i, j]; }
-            if (array[i, j] > maxNum) { maxNum = array[i, j]; }
+            if (array[i, j] > maxNum)
+            {
+                maxNum = array[i, j];
+            }
         }
-
-        sumMinNum += minNum;
+        System.Console.WriteLine($"{i + 1}:Row sumMaxNumInRow={sumMaxNum}+{maxNum}={sumMaxNum + maxNum}"); //Что бы при проверке не считать самому
         sumMaxNum += maxNum;
     }
-    int answer = sumMaxNum - sumMinNum;
-
-    return answer;
+    return sumMaxNum;
 }
 
+
+int CalcSumMinNumInCol(int[,] array)
+{
+    int sumMinNum = 0;
+    for (int i = 0; i < array.GetLength(1); i++)
+    {
+        int minNum = array[0, i];
+        for (int j = 0; j < array.GetLength(0); j++)
+        {
+            if (array[j, i] < minNum)
+            {
+                minNum = array[j, i];
+            }
+        }
+        System.Console.WriteLine($"{i + 1}:Col sumMinNumInCol={sumMinNum}+{minNum}={sumMinNum + minNum} "); //Что бы при проверке не считать самому
+        sumMinNum += minNum;
+    }
+    return sumMinNum;
+}
 
 
 
@@ -99,4 +117,5 @@ int[,] takeArray = Create2DArray();
 Print2DArray(takeArray);
 Fill2DArray(takeArray);
 Print2DArray(takeArray);
-System.Console.WriteLine(CalcDifferenceSumMaxSumMin(takeArray));
+int answer = CalcSumMaxNumInRow(takeArray) - CalcSumMinNumInCol(takeArray);
+System.Console.WriteLine($"Сумма Максимальных чисел в строке минус, Сумма Минимальных чисел в колонке = {answer}");

@@ -1,11 +1,15 @@
 ﻿// See https://aka.ms/new-console-template for more information
 Console.WriteLine("Hello, World!");
-/*
-Задача 4. Со звездочкой(*). Найдите максимальное значение в матрице по каждой строке, ссумируйте их. 
-Затем найдети минимальное значение по каждой колонке, тоже ссумируйте их. 
-Затем из первой суммы (с максимумами) вычтите вторую сумму(с минимумами) 
-*/
 
+/*
+Задача 2. Напишите программу, которая на вход принимает позиции элемента в двумерном массиве,
+ и возвращает значение этого элемента или же указание, что такого элемента нет.
+Например, задан массив:
+1 4 7 2
+5 9 2 3
+8 4 2 4
+17 -> такого числа в массиве нет
+*/
 
 int Prompt(string message)
 {
@@ -45,8 +49,8 @@ void Print2DArray(int[,] array)
 
 int[,] Fill2DArray(int[,] array)
 {
-    int from = Prompt("Заполнить случайными значениями от: ");
-    int before = Prompt("Заполнить случайными значениями до: ");
+    int from = 0;
+    int before = 31;
 
     for (int i = 0; i < array.GetLength(0); i++)
     {
@@ -65,29 +69,26 @@ int[,] Create2DArray()
     return array;
 }
 
-int CalcDifferenceSumMaxSumMin(int[,] array)
+
+int LookingIn2DArray(int row, int col, int[,] array)
 {
-
-    int sumMinNum = 0;
-    int sumMaxNum = 0;
-    for (int i = 0; i < array.GetLength(0); i++)
+    int answer = 0;
+    if (row < 0 || col < 0)
     {
-        int minNum = array[i, 0];
-        int maxNum = array[i, 0];
-        for (int j = 0; j < array.GetLength(1); j++)
-        {
-            if (array[i, j] < minNum) { minNum = array[i, j]; }
-            if (array[i, j] > maxNum) { maxNum = array[i, j]; }
-        }
-
-        sumMinNum += minNum;
-        sumMaxNum += maxNum;
+        System.Console.WriteLine("Позиция не может быть меньше или равна 0");
+        return answer;
     }
-    int answer = sumMaxNum - sumMinNum;
-
+    else if (row <= array.GetLength(0) - 1 && col <= array.GetLength(1) - 1)
+    {
+        System.Console.WriteLine($"В строке {row} столбце {col} записано {array[row - 1, col - 1]}");
+        answer = array[row - 1, col - 1];
+    }
+    else
+    {
+        System.Console.WriteLine($"В массиве нет строки {row} столбца {col}");
+    }
     return answer;
 }
-
 
 
 
@@ -99,4 +100,7 @@ int[,] takeArray = Create2DArray();
 Print2DArray(takeArray);
 Fill2DArray(takeArray);
 Print2DArray(takeArray);
-System.Console.WriteLine(CalcDifferenceSumMaxSumMin(takeArray));
+
+int searchRow = Prompt("В строке: ");
+int searchCol = Prompt("В столбце: ");
+int Value = LookingIn2DArray(searchRow, searchCol, takeArray);

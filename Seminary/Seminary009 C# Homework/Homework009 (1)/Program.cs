@@ -15,15 +15,18 @@ int Prompt(string message)
 }
 
 
-void PrintNumbersBetween(int start, int end) 
+void PrintNumbersBetween(int start, int end)
 {
     if (start <= end)
     {
-        System.Console.Write($"{start}");
-
-        if (start < end)
+        if (start <= end && start % 2 == 0)
         {
+            System.Console.Write($"{start}");
             System.Console.Write(", ");
+            PrintNumbersBetween(start + 1, end);
+        }
+       else
+        {
             PrintNumbersBetween(start + 1, end);
         }
     }

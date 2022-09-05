@@ -23,12 +23,9 @@ void PrintNumbersBetween(int start, int end)
         {
             System.Console.Write($"{start}");
             System.Console.Write(", ");
-            PrintNumbersBetween(start + 1, end);
         }
-       else
-        {
             PrintNumbersBetween(start + 1, end);
-        }
+       
     }
 }
 
